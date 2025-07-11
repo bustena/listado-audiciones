@@ -29,6 +29,7 @@
       width: 100%;
       border-collapse: collapse;
       margin-top: 1rem;
+      table-layout: auto; /* columnas flexibles */
     }
     th, td {
       border: 1px solid #ccc;
@@ -85,7 +86,9 @@
       }
 
       let html = `<table><thead><tr>
-        <th>Audición</th><th>Audio</th><th>Más info</th>
+        <th>Audición</th>
+        <th>Audio</th>
+        <th>Más info</th>
       </tr></thead><tbody>`;
 
       data.forEach(row => {
