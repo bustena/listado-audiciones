@@ -58,6 +58,8 @@ h1, h2 {
   padding: 1rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  max-width: 600px;       /* límite de ancho */
+  margin: 0 auto;         /* centrado horizontal */
 }
 
 .audicion:hover {
