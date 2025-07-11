@@ -34,21 +34,3 @@ function displayTable(data) {
     container.appendChild(bloque);
   });
 }
-
-  let html = `<table><thead><tr>
-    <th>Audición</th>
-    <th>Audio</th>
-    <th>Más info</th>
-  </tr></thead><tbody>`;
-
-  data.forEach(row => {
-    html += `<tr>
-      <td>${row.Autor}: ${row.Obra}</td>
-      <td><audio controls src="${row.URL_audio}"></audio></td>
-      <td><button onclick="window.open('${row.E_url}', '_blank')">Ver entrada</button></td>
-    </tr>`;
-  });
-
-  html += `</tbody></table>`;
-  container.innerHTML = html;
-}
