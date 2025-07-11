@@ -20,11 +20,20 @@ function loadCSV(sheetName) {
 }
 
 function displayTable(data) {
-  const container = document.getElementById('output');
-  if (!data.length) {
-    container.innerHTML = '<p>No hay datos.</p>';
-    return;
-  }
+  const container = document.getElementById('audiciones');
+  container.innerHTML = ''; // limpiar
+
+  data.forEach(row => {
+    const bloque = document.createElement('div');
+    bloque.className = 'audicion';
+    bloque.innerHTML = `
+      <div class="texto">${row.Autor}: ${row.Obra}</div>
+      <audio controls src="${row.URL_audio}"></audio>
+      <button onclick="window.open('${row.E_url}', '_blank')">Ver entrada</button>
+    `;
+    container.appendChild(bloque);
+  });
+}
 
   let html = `<table><thead><tr>
     <th>Audición</th>
