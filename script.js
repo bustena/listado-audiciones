@@ -45,12 +45,17 @@ function displayTable(data) {
     const bloque = document.createElement('div');
     bloque.className = 'audicion';
     bloque.innerHTML = `
-      <div class="texto">${row.Autor}: ${row.Obra}</div>
-      <audio controls src="${row.URL_audio}"></audio>
-      <button onclick="window.open('${row.E_url}', '_blank')">Ver entrada</button>
+      <div class="cabecera">
+        <div class="texto">${row.Autor}: ${row.Obra}</div>
+      </div>
+      <div class="contenido">
+        <audio controls src="${row.URL_audio}"></audio>
+        <button onclick="window.open('${row.E_url}', '_blank')">🔗 Ver entrada</button>
+      </div>
     `;
     container.appendChild(bloque);
 
+    // Control: parar otros audios al reproducir
     const audio = bloque.querySelector('audio');
     audio.addEventListener('play', () => {
       document.querySelectorAll('audio').forEach(a => {
