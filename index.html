@@ -8,16 +8,19 @@
 </head>
 <body>
   <h1>Audiciones</h1>
-  <div class="buttons">
-    <button onclick="loadCSV('H1tr1')">Historia 1 (1er trimestre)</button>
-    <button onclick="loadCSV('H1tr2')">Historia 1 (2º trimestre)</button>
-    <button onclick="loadCSV('H1tr3')">Historia 1 (3er trimestre)</button>
-  </div>
-   <div class="buttons">
-    <button onclick="loadCSV('H2tr1')">Historia 2 (1er trimestre)</button>
-    <button onclick="loadCSV('H2tr2')">Historia 2 (2º trimestre)</button>
-    <button onclick="loadCSV('H2tr3')">Historia 2 (3er trimestre)</button>
-  </div>
+    <h2>Historia de la Música 1</h2>
+    <div class="botonera">
+      <button onclick="loadCSV('H1tr1')">🎼 1er trimestre</button>
+      <button onclick="loadCSV('H1tr2')">🎼 2º trimestre</button>
+      <button onclick="loadCSV('H1tr3')">🎼 3er trimestre</button>
+    </div>
+    
+    <h2>Historia de la Música 2</h2>
+    <div class="botonera">
+      <button onclick="loadCSV('H2tr1')">📚 1er trimestre</button>
+      <button onclick="loadCSV('H2tr2')">📚 2º trimestre</button>
+      <button onclick="loadCSV('H2tr3')">📚 3er trimestre</button>
+    </div>
   <div id="cargando" style="text-align:center; margin: 1rem; display:none;">Cargando...</div>
   <div id="audiciones" class="audiciones"></div>
 
