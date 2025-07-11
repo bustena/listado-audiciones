@@ -47,3 +47,9 @@ data.forEach(row => {
     });
   });
 });
+
+function setButtonsDisabled(state) {
+  document.querySelectorAll('.buttons button').forEach(btn => {
+    btn.disabled = state;
+  });
+}
