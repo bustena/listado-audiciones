@@ -4,22 +4,38 @@ body {
   background: #f9f9f9;
 }
 
-h1 {
+h2 {
   text-align: center;
+  margin-top: 2rem;
+  color: #333;
+  font-size: 1.3rem;
 }
 
-.buttons {
+.botonera {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 2rem;
 }
 
-button {
+.botonera button {
+  background: #eee;
+  border: 2px solid #ccc;
+  border-radius: 8px;
   padding: 0.8rem 1.2rem;
   font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 160px;
+}
+
+.botonera button:hover {
+  background: #d4e4ff;
+  border-color: #88aaff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
 }
 
 .audiciones {
