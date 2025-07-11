@@ -5,6 +5,7 @@ body {
   margin: 2rem;
   background: #f5eee6; /* actualizado */
   color: #5c3e36;
+  padding-bottom: 60px; /* espacio para el footer fijo */
 }
 
 /* Títulos */
