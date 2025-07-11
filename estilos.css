@@ -97,13 +97,18 @@ audio {
 }
 
 .audicion button {
-  padding: 0.5rem 1rem;
+  display: block;
+  margin: 0 auto;               /* centrado horizontal */
+  padding: 0.5rem 1.5rem;
   background: #765348;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background 0.2s ease;
+  width: fit-content;           /* ancho ajustado al contenido */
+  min-width: 120px;             /* opcional: evita que se vea demasiado pequeño */
+  text-align: center;
 }
 
 .audicion button:hover {
