@@ -8,6 +8,10 @@ const urls = {
 };
 
 function loadCSV(sheetName) {
+  // Mostrar mensaje y desactivar botones
+  document.getElementById('cargando').style.display = 'block';
+  setButtonsDisabled(true);
+
   const url = urls[sheetName];
   Papa.parse(url, {
     download: true,
@@ -15,6 +19,9 @@ function loadCSV(sheetName) {
     complete: function(results) {
       const data = results.data.slice(0, 15);
       displayTable(data);
+      // Ocultar mensaje y reactivar botones
+      document.getElementById('cargando').style.display = 'none';
+      setButtonsDisabled(false);
     }
   });
 }
