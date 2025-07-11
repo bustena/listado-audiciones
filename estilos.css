@@ -1,20 +1,21 @@
 body {
   font-family: sans-serif;
   margin: 2rem;
-  background: #f9f9f9;
+  background: #f2f2f2; /* gris claro */
+  color: #5c3e36;       /* marrón suave para textos */
 }
 
 h1 {
   text-align: center;
   font-size: 1.6rem;
   margin-bottom: 1.5rem;
-  color: #222;
+  color: #5c3e36;
 }
 
 h2 {
   text-align: center;
   margin-top: 2rem;
-  color: #333;
+  color: #5c3e36;
   font-size: 1.3rem;
 }
 
@@ -27,22 +28,22 @@ h2 {
 }
 
 .botonera button {
-  background: #eee;
-  border: 2px solid #ccc;
+  background: #765348;       /* marrón medio */
+  color: white;
+  border: none;
   border-radius: 8px;
   padding: 0.8rem 1.2rem;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
   min-width: 160px;
 }
 
 .botonera button:hover {
-  background: #d4e4ff;
-  border-color: #88aaff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  background: #5c3e36;       /* marrón más oscuro */
   transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 .audiciones {
@@ -53,10 +54,10 @@ h2 {
 }
 
 .audicion {
-  border: 1px solid #ccc;
+  background: #f5eee6;       /* crema */
+  border: 1px solid #ddd;
   border-radius: 8px;
   padding: 1rem;
-  background: #fff;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -88,16 +89,16 @@ audio {
 
 .audicion button {
   padding: 0.5rem 1rem;
-  background: #444;
+  background: #765348;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s ease;
 }
 
 .audicion button:hover {
-  background: #222;
+  background: #5c3e36;
 }
 
 .footer {
@@ -105,7 +106,7 @@ audio {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: #222;
+  background: #5c3e36;
   color: white;
   text-align: center;
   padding: 0.7rem 1rem;
