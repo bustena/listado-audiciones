@@ -3,7 +3,7 @@ body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
   margin: 2rem;
-  background: #f2f2f2;
+  background: #f5eee6; /* actualizado */
   color: #5c3e36;
 }
 
@@ -83,6 +83,7 @@ h2 {
 .texto {
   font-weight: 400;
   font-size: 1.1rem;
+  color: #5c3e36; /* asegura coherencia de color en texto */
 }
 
 .contenido {
@@ -98,7 +99,7 @@ audio {
 
 .audicion button {
   display: block;
-  margin: 0 auto;               /* centrado horizontal */
+  margin: 0 auto;
   padding: 0.5rem 1.5rem;
   background: #765348;
   color: white;
@@ -106,9 +107,10 @@ audio {
   border-radius: 4px;
   cursor: pointer;
   transition: background 0.2s ease;
-  width: fit-content;           /* ancho ajustado al contenido */
-  min-width: 120px;             /* opcional: evita que se vea demasiado pequeño */
+  width: fit-content;
+  min-width: 120px;
   text-align: center;
+  font-weight: bold;
 }
 
 .audicion button:hover {
@@ -121,8 +123,8 @@ audio {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: #5c3e36;
-  color: white;
+  background: #f5eee6; /* unificado con body */
+  color: #5c3e36;       /* coherente con texto */
   text-align: center;
   padding: 0.7rem 1rem;
   font-size: 1rem;
@@ -133,7 +135,7 @@ audio {
 }
 
 .footer a {
-  color: white;
+  color: #5c3e36;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
