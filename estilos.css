@@ -189,6 +189,11 @@ audio {
   outline-offset: 3px;
 }
 
+/* Oculta el menú de opciones de los controles de audio en Chromium */
+audio::-webkit-media-controls-overflow-button {
+  display: none !important;
+}
+
 /* MÓVIL */
 
 @media (max-width: 600px) {
