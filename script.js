@@ -89,12 +89,11 @@ bloque.innerHTML = `
     </audio>
 
     <div class="acciones">
-      <a
+      <button
         class="boton-accion"
-        href="${row.URL_audio}"
-        download>
+        onclick="descargarAudio('${row.URL_audio}', this)">
         ⬇ Descargar audio
-      </a>
+      </button>
 
       <a
         class="boton-accion"
