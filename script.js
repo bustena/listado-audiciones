@@ -38,8 +38,6 @@ window.addEventListener('load', () => {
   enviarAltura();
 });
 
-window.addEventListener('resize', enviarAltura);
-
 function setButtonsDisabled(state) {
   document.querySelectorAll('.botonera button').forEach(btn => {
     btn.disabled = state;
