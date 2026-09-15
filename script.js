@@ -76,16 +76,36 @@ function displayTable(data) {
     const bloque = document.createElement('div');
     bloque.className = 'audicion';
 
-    bloque.innerHTML = `
-      <div class="cabecera">
-        <div class="texto">${row.Autor}: ${row.Obra}</div>
-      </div>
+bloque.innerHTML = `
+  <div class="cabecera">
+    <div class="texto">${row.Autor}: ${row.Obra}</div>
+  </div>
 
-      <div class="contenido">
-        <audio controls src="${row.URL_audio}"></audio>
-        <button onclick="window.open('${row.E_url}', '_blank')">🔗 Ver entrada</button>
-      </div>
-    `;
+  <div class="contenido">
+    <audio
+      controls
+      controlslist="nodownload noplaybackrate"
+      src="${row.URL_audio}">
+    </audio>
+
+    <div class="acciones">
+      <a
+        class="boton-accion"
+        href="${row.URL_audio}"
+        download>
+        ⬇ Descargar audio
+      </a>
+
+      <a
+        class="boton-accion"
+        href="${row.E_url}"
+        target="_blank"
+        rel="noopener">
+        🔗 Ver entrada
+      </a>
+    </div>
+  </div>
+`;
 
     container.appendChild(bloque);
 
