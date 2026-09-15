@@ -189,6 +189,37 @@ audio {
   outline-offset: 3px;
 }
 
+.acciones {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: .25rem;
+}
+
+.boton-accion {
+  display: inline-block;
+  padding: .5rem 1.2rem;
+  background: #765348;
+  color: #fff;
+  border-radius: 4px;
+  font-family: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+
+.boton-accion:hover {
+  background: #5c3e36;
+  color: #fff;
+}
+
+/* Evita el menú problemático de los tres puntos */
+audio::-webkit-media-controls-overflow-button {
+  display: none !important;
+}
+
 /* Oculta el menú de opciones de los controles de audio en Chromium */
 audio::-webkit-media-controls-overflow-button {
   display: none !important;
