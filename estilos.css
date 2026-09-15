@@ -156,23 +156,33 @@ audio {
   margin-bottom: 0.5rem;
 }
 
-/* BOTÓN DE DESCARGA */
+/* ACCIONES */
 
-.audicion button {
-  display: block;
-  width: fit-content;
-  min-width: 120px;
+.acciones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
 
-  margin: 0 auto;
-  padding: 0.5rem 1.5rem;
+.audicion .boton-accion {
+  display: inline-block;
+  width: auto;
+  min-width: 170px;
+  margin: 0;
+  padding: 0.55rem 1.2rem;
 
   background: #765348;
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 4px;
 
   font-family: inherit;
+  font-size: 0.95rem;
   font-weight: 700;
+  line-height: 1.2;
   text-align: center;
 
   cursor: pointer;
@@ -180,47 +190,17 @@ audio {
   transition: background 0.2s ease;
 }
 
-.audicion button:hover {
+.audicion .boton-accion:hover {
   background: #5c3e36;
 }
 
-.audicion button:focus-visible {
+.audicion .boton-accion:focus-visible {
   outline: 3px solid rgba(118, 83, 72, 0.3);
   outline-offset: 3px;
 }
 
-.acciones {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: .75rem;
-  margin-top: .25rem;
-}
-
-.boton-accion {
-  display: inline-block;
-  padding: .5rem 1.2rem;
-  background: #765348;
-  color: #fff;
-  border-radius: 4px;
-  font-family: inherit;
-  font-weight: 700;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background .2s ease;
-}
-
-.boton-accion:hover {
-  background: #5c3e36;
-  color: #fff;
-}
-
 /* Evita el menú problemático de los tres puntos */
-audio::-webkit-media-controls-overflow-button {
-  display: none !important;
-}
 
-/* Oculta el menú de opciones de los controles de audio en Chromium */
 audio::-webkit-media-controls-overflow-button {
   display: none !important;
 }
