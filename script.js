@@ -88,21 +88,21 @@ bloque.innerHTML = `
       src="${row.URL_audio}">
     </audio>
 
-    <div class="acciones">
-      <button
-        class="boton-accion"
-        onclick="descargarAudio('${row.URL_audio}', this)">
-        ⬇ Descargar audio
-      </button>
+<div class="acciones">
+  <button
+    type="button"
+    class="boton-accion"
+    onclick="descargarAudio('${row.URL_audio}', this)">
+    ⬇ Descargar audio
+  </button>
 
-      <a
-        class="boton-accion"
-        href="${row.E_url}"
-        target="_blank"
-        rel="noopener">
-        🔗 Ver entrada
-      </a>
-    </div>
+  <button
+    type="button"
+    class="boton-accion"
+    onclick="window.open('${row.E_url}', '_blank')">
+    🔗 Ver entrada
+  </button>
+</div>
   </div>
 `;
 
