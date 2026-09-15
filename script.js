@@ -8,18 +8,25 @@ const urls = {
 };
 
 function enviarAltura() {
-  const altura = document.documentElement.scrollHeight;
+  const altura = document.body.scrollHeight;
 
   window.parent.postMessage({
     type: 'hm-app-height',
-    height: altura
+    height: altura + 10
   }, '*');
 }
 
-window.addEventListener('load', enviarAltura);
+window.addEventListener('load', () => {
+  window.scrollTo(0, 0);
+  enviarAltura();
+});
+
 window.addEventListener('resize', enviarAltura);
 
-const observer = new ResizeObserver(enviarAltura);
+const observer = new ResizeObserver(() => {
+  enviarAltura();
+});
+
 observer.observe(document.body);
 
 function setButtonsDisabled(state) {
