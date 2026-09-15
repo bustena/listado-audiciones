@@ -7,13 +7,30 @@ const urls = {
   H2tr3: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTb2p1IwuAK7jqnep9w4K5Vnmi-66ugFXv8JYTWRuDEIWDv7hGGlj7qk6SyU7ulW9DklaZ4-vIuehou/pub?gid=1487547326&single=true&output=csv',
 };
 
-function enviarAltura() {
-  const altura = document.body.scrollHeight;
+/* =========================================
+   AJUSTE AUTOMÁTICO DE ALTURA DEL IFRAME
+   ========================================= */
 
-  window.parent.postMessage({
-    type: 'hm-app-height',
-    height: altura + 10
-  }, '*');
+let ultimoAlto = 0;
+
+function enviarAltura() {
+  requestAnimationFrame(() => {
+    const altura = Math.max(
+      document.body.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.scrollHeight,
+      document.documentElement.offsetHeight
+    ) + 20;
+
+    if (altura !== ultimoAlto) {
+      ultimoAlto = altura;
+
+      window.parent.postMessage({
+        type: 'hm-app-height',
+        height: altura
+      }, '*');
+    }
+  });
 }
 
 window.addEventListener('load', () => {
@@ -23,11 +40,17 @@ window.addEventListener('load', () => {
 
 window.addEventListener('resize', enviarAltura);
 
-const observer = new ResizeObserver(() => {
-  enviarAltura();
-});
+const resizeObserver = new ResizeObserver(enviarAltura);
+resizeObserver.observe(document.body);
 
-observer.observe(document.body);
+const mutationObserver = new MutationObserver(enviarAltura);
+
+mutationObserver.observe(document.body, {
+  childList: true,
+  subtree: true,
+  attributes: true,
+  characterData: true
+});
 
 function setButtonsDisabled(state) {
   document.querySelectorAll('.buttons button').forEach(btn => {
