@@ -122,3 +122,40 @@ bloque.innerHTML = `
   setTimeout(enviarAltura, 100);
   setTimeout(enviarAltura, 500);
 }
+
+async function descargarAudio(url, boton) {
+  const textoOriginal = boton.textContent;
+
+  try {
+    boton.disabled = true;
+    boton.textContent = '⬇ Descargando...';
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+
+    const blob = await response.blob();
+    const blobUrl = URL.createObjectURL(blob);
+
+    const enlace = document.createElement('a');
+    enlace.href = blobUrl;
+    enlace.download = url.split('/').pop() || 'audicion.mp3';
+
+    document.body.appendChild(enlace);
+    enlace.click();
+    enlace.remove();
+
+    setTimeout(() => {
+      URL.revokeObjectURL(blobUrl);
+    }, 1000);
+
+  } catch (error) {
+    console.error('Error al descargar el audio:', error);
+    alert('No se ha podido descargar el audio.');
+  } finally {
+    boton.disabled = false;
+    boton.textContent = textoOriginal;
+  }
+}
