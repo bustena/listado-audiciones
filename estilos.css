@@ -1,72 +1,134 @@
-/* Tipografía base */
+/* =========================================
+   AUDICIONES · HISTORIA DE LA MÚSICA
+   App incrustada
+   ========================================= */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
   background: #F7F7F5;
   color: #5c3e36;
-  padding-bottom: 80px; /* espacio suficiente para el footer */
-  margin: 0; /* asegúrate de quitar cualquier margen por defecto */
 }
 
-/* Títulos */
-h1, h2 {
+/* CONTENEDOR */
+
+.app {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 1rem 1.5rem;
+}
+
+/* CURSOS */
+
+.curso {
+  margin: 0 0 2rem;
+}
+
+.curso:last-of-type {
+  margin-bottom: 1.25rem;
+}
+
+/* TÍTULOS */
+
+h1,
+h2 {
   text-align: center;
   font-weight: 300;
-  margin-top: 1rem;
 }
 
-/* Botonera */
+h2 {
+  margin: 0 0 1rem;
+  font-size: 1.65rem;
+  line-height: 1.3;
+}
+
+/* BOTONERA */
+
 .botonera {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin: 0;
 }
 
 .botonera button {
+  min-width: 160px;
+  padding: 0.8rem 1.2rem;
+
   background: #765348;
   color: white;
   border: none;
   border-radius: 8px;
-  padding: 0.8rem 1.2rem;
+
+  font-family: inherit;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 700;
+
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
-  min-width: 160px;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .botonera button:hover {
   background: #5c3e36;
   transform: translateY(-2px);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Tarjetas de audiciones */
+.botonera button:focus-visible {
+  outline: 3px solid rgba(118, 83, 72, 0.3);
+  outline-offset: 3px;
+}
+
+/* CARGANDO */
+
+.cargando {
+  display: none;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+/* LISTADO DE AUDICIONES */
+
 .audiciones {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  padding-bottom: 4rem; /* espacio para el footer */
 }
 
+/* TARJETAS */
+
 .audicion {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+
   background: #f5eee6;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  max-width: 600px;    /* límite en pantallas grandes */
-  width: 100%;         /* ocupa todo el ancho disponible */
-  box-sizing: border-box; /* incluye padding y borde en el ancho */
-  margin: 0 auto;      /* centrado horizontal */
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .audicion:hover {
   transform: scale(1.01);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .cabecera {
@@ -74,9 +136,9 @@ h1, h2 {
 }
 
 .texto {
-  font-weight: 400;
+  color: #5c3e36;
   font-size: 1.1rem;
-  color: #5c3e36; /* asegura coherencia de color en texto */
+  font-weight: 400;
 }
 
 .contenido {
@@ -85,61 +147,72 @@ h1, h2 {
   gap: 0.5rem;
 }
 
+/* AUDIO */
+
 audio {
   width: 100%;
   margin-bottom: 0.5rem;
 }
 
+/* BOTÓN DE DESCARGA */
+
 .audicion button {
   display: block;
+  width: fit-content;
+  min-width: 120px;
+
   margin: 0 auto;
   padding: 0.5rem 1.5rem;
+
   background: #765348;
   color: white;
   border: none;
   border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-  width: fit-content;
-  min-width: 120px;
+
+  font-family: inherit;
+  font-weight: 700;
   text-align: center;
-  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
 }
 
 .audicion button:hover {
   background: #5c3e36;
 }
 
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #5c3e36; /* fondo oscuro, ya usado en hover */
-  color: white;
-  text-align: center;
-  padding: 0.7rem 1rem;
-  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
-  font-family: 'Lato', sans-serif;
-  font-weight: 700; /* negrita clara */
-  font-size: 1rem;
-  z-index: 100;
+.audicion button:focus-visible {
+  outline: 3px solid rgba(118, 83, 72, 0.3);
+  outline-offset: 3px;
 }
 
-.footer a {
-  color: white;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
+/* MÓVIL */
 
-.footer-icon {
-  height: 24px;
-  width: 24px;
-}
+@media (max-width: 600px) {
 
-.footer-title {
-  font-size: 1rem;
-  font-weight: 700; /* negrita */
+  .app {
+    padding: 0.25rem 0.75rem 1rem;
+  }
+
+  .curso {
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .botonera {
+    gap: 0.65rem;
+  }
+
+  .botonera button {
+    min-width: 0;
+    flex: 1 1 140px;
+  }
+
+  .audiciones {
+    gap: 1rem;
+  }
 }
