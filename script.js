@@ -40,18 +40,6 @@ window.addEventListener('load', () => {
 
 window.addEventListener('resize', enviarAltura);
 
-const resizeObserver = new ResizeObserver(enviarAltura);
-resizeObserver.observe(document.body);
-
-const mutationObserver = new MutationObserver(enviarAltura);
-
-mutationObserver.observe(document.body, {
-  childList: true,
-  subtree: true,
-  attributes: true,
-  characterData: true
-});
-
 function setButtonsDisabled(state) {
   document.querySelectorAll('.botonera button').forEach(btn => {
     btn.disabled = state;
@@ -89,10 +77,12 @@ function displayTable(data) {
   data.forEach(row => {
     const bloque = document.createElement('div');
     bloque.className = 'audicion';
+
     bloque.innerHTML = `
       <div class="cabecera">
         <div class="texto">${row.Autor}: ${row.Obra}</div>
       </div>
+
       <div class="contenido">
         <audio controls src="${row.URL_audio}"></audio>
         <button onclick="window.open('${row.E_url}', '_blank')">🔗 Ver entrada</button>
@@ -102,6 +92,7 @@ function displayTable(data) {
     container.appendChild(bloque);
 
     const audio = bloque.querySelector('audio');
+
     audio.addEventListener('play', () => {
       document.querySelectorAll('audio').forEach(a => {
         if (a !== audio) a.pause();
@@ -109,7 +100,8 @@ function displayTable(data) {
     });
   });
 
-  // Actualizar la altura del iframe una vez creadas todas las tarjetas
+  // Recalcular únicamente después de construir las fichas.
   enviarAltura();
   setTimeout(enviarAltura, 100);
+  setTimeout(enviarAltura, 500);
 }
