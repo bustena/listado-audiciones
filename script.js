@@ -130,7 +130,8 @@ async function descargarAudio(url, boton) {
     boton.disabled = true;
     boton.textContent = '⬇ Descargando...';
 
-    const response = await fetch(url);
+    const urlSegura = url.replace(/^http:\/\//i, 'https://');
+    const response = await fetch(urlSegura);
 
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`);
@@ -141,7 +142,7 @@ async function descargarAudio(url, boton) {
 
     const enlace = document.createElement('a');
     enlace.href = blobUrl;
-    enlace.download = url.split('/').pop() || 'audicion.mp3';
+    enlace.download = urlSegura.split('/').pop() || 'audicion.mp3';
 
     document.body.appendChild(enlace);
     enlace.click();
