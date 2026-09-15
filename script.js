@@ -53,7 +53,7 @@ mutationObserver.observe(document.body, {
 });
 
 function setButtonsDisabled(state) {
-  document.querySelectorAll('.buttons button').forEach(btn => {
+  document.querySelectorAll('.botonera button').forEach(btn => {
     btn.disabled = state;
   });
 }
@@ -84,7 +84,7 @@ function loadCSV(sheetName) {
 
 function displayTable(data) {
   const container = document.getElementById('audiciones');
-  container.innerHTML = ''; // limpiar
+  container.innerHTML = '';
 
   data.forEach(row => {
     const bloque = document.createElement('div');
@@ -98,9 +98,9 @@ function displayTable(data) {
         <button onclick="window.open('${row.E_url}', '_blank')">🔗 Ver entrada</button>
       </div>
     `;
+
     container.appendChild(bloque);
 
-    // Control: parar otros audios al reproducir
     const audio = bloque.querySelector('audio');
     audio.addEventListener('play', () => {
       document.querySelectorAll('audio').forEach(a => {
@@ -108,4 +108,8 @@ function displayTable(data) {
       });
     });
   });
+
+  // Actualizar la altura del iframe una vez creadas todas las tarjetas
+  enviarAltura();
+  setTimeout(enviarAltura, 100);
 }
