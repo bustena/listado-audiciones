@@ -7,6 +7,21 @@ const urls = {
   H2tr3: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTb2p1IwuAK7jqnep9w4K5Vnmi-66ugFXv8JYTWRuDEIWDv7hGGlj7qk6SyU7ulW9DklaZ4-vIuehou/pub?gid=1487547326&single=true&output=csv',
 };
 
+function enviarAltura() {
+  const altura = document.documentElement.scrollHeight;
+
+  window.parent.postMessage({
+    type: 'hm-app-height',
+    height: altura
+  }, '*');
+}
+
+window.addEventListener('load', enviarAltura);
+window.addEventListener('resize', enviarAltura);
+
+const observer = new ResizeObserver(enviarAltura);
+observer.observe(document.body);
+
 function setButtonsDisabled(state) {
   document.querySelectorAll('.buttons button').forEach(btn => {
     btn.disabled = state;
